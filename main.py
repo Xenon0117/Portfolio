@@ -1,5 +1,5 @@
 #Import Modules
-from flask import Flask,render_template,request,redirect,url_for,flash,abort
+from flask import Flask,render_template,request,redirect,url_for,flash,abort,send_from_directory
 from reqs import Req
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
@@ -21,6 +21,8 @@ year=datetime.now().strftime("%Y")
 app=Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///user_data.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+DOWNLOAD_FOLDER = 'Downloadables'
+app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 app.secret_key = 'IamNoone00#'
 
 #Initialize DB
@@ -191,6 +193,15 @@ def view():
         # Get all records from DataBase table
         all_data = db.session.execute(db.select(DataBase).order_by(DataBase.id)).scalars().all()
     return render_template('view.html', data=all_data, current_year=year)
+
+@app.route('/download/<filename>')
+def download_file(filename):
+    # Construct the full path to the file
+    return send_from_directory(
+        app.config['DOWNLOAD_FOLDER'],
+        filename,
+        as_attachment=True  # This makes the browser download the file
+    )
 
 if __name__=="__main__":
     app.run(debug=False)
