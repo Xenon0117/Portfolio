@@ -4,7 +4,7 @@
             <main class="px-3"> 
                 <br><br><br><br>
                 <!-- Quotes -->
-                 <div class="daily-quotes">
+                  <div class="daily-quotes">
                  
                 <h1 id="quote">Daily Quote</h1> <br><br><br>
                     <p class="lead quote"><q>{{quote}}</q></p> 
@@ -45,7 +45,7 @@
                 <h2 class="pb-2 border-bottom" >My Projects 💻</h2>
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"> 
                 <div class="col"> 
-                    <a href="{{url_for('projects',project_id=1)}}"><div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url(../static/python.png);width: 300px; height: 200px;"> 
+                    <a href="{{url_for('projects',project_id=1)}}"><div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1"> 
                             <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Python Works</h3> 
                             
@@ -54,7 +54,7 @@
                 </div> 
                 <div class="col"> 
                     <a href="{{url_for('projects',project_id=2)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('../static/pcb.jpg');width: 300px; height: 200px;"> 
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1" > 
                             <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Some PCB Designs... 😎</h3> 
                             
@@ -63,7 +63,7 @@
                 </div> 
                 <div class="col"> 
                     <a href="{{url_for('projects',project_id=3)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('../static/3d.png');width: 300px; height: 200px;"> 
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1"> 
                             <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Some 3D models &#128513;</h3> 
                              
@@ -72,7 +72,7 @@
                 </div> 
                   <div class="col"> 
                     <a href="{{url_for('projects',project_id=4)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('../static/3d.png');width: 300px; height: 200px;"> 
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1"> 
                             <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Some Electronics Projects &#128513;</h3> 
                              
@@ -106,5 +106,10 @@
 
                         
             </main> 
-            {% endblock %}
+
+{% endblock %}
+
+
+
+
             

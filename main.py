@@ -1,4 +1,5 @@
 #Import Modules
+
 from flask import Flask,render_template,request,redirect,url_for,flash,abort,send_from_directory
 from reqs import Req
 from datetime import datetime
@@ -19,11 +20,11 @@ year=datetime.now().strftime("%Y")
 
 #Initialize 
 app=Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///user_data.db"
+app.config["SQLALCHEMY_DATABASE_URI"]=os.environ['DB_URI']
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 DOWNLOAD_FOLDER = 'Downloadables'
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
-app.secret_key = 'IamNoone00#'
+app.config["SECRET_KEY"] = os.environ['FLASK_KEY']
 
 #Initialize DB
 class Base(DeclarativeBase):
@@ -88,7 +89,7 @@ def index():
             db.session.add(new_data)
             db.session.commit()
         new_letter=f"Name: {name}\nEmail Id: {email}\nMessage:{message}"
-        data=[name,email,message]
+        
         email_message = MIMEText(new_letter)
         email_message['Subject'] = f"Feedback from {name}"
         email_message['From'] = _email

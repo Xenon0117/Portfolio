@@ -2,15 +2,14 @@ body{
 background: #1D4350;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+color: #fff;
 }
-/* Add a black background color to the top navigation */
-.topnav {
+
+ .topnav {
   background-color:transparent;
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   float: right;
   color: #f2f2f2;
@@ -18,16 +17,16 @@ background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, F
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  /* font-family: Arial, Helvetica, sans-serif; */
+  
 }
 
-/* Change the color of links on hover */
+
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
 
-/* Add a color to the active/current link */
+
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
@@ -59,39 +58,39 @@ background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, F
 
 
 
-/* Contact Form Styling */
+
 .contact {
   border-radius: 5px;
   background-color: transparent;
   padding: 20px;
-  max-width: 800px; /* Optional: limit form width */
-  margin: 0 auto; /* Center the form container */
+  max-width: 800px; 
+  margin: 0 auto; 
 }
 
 .to_left, label {
   text-align: left;
-  display: block; /* Ensure labels are block elements */
+  display: block; 
   margin-bottom: 5px;
   font-weight: bold;
   color: #ddd;
 }
 
-/* Style inputs with type="text", select elements and textareas */
+
 input[type=text], textarea, input[type=email],input[type=password] {
   background-color: transparent;
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical; 
   color: #ddd;
-  display: block; /* Ensure inputs are block elements */
+  display: block; 
 }
 
-/* Style the submit button with a specific background color etc */
+
 button[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -99,16 +98,16 @@ button[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  display: block; /* Make button block element */
+  display: block;
   margin-top: 10px;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
+
 button[type=submit]:hover {
   background-color: orangered;
 }
 
-/* Form group container for better spacing */
+
 .form-group {
   margin-bottom: 20px;
   text-align: left;
@@ -116,3 +115,4 @@ button[type=submit]:hover {
 a{
   text-decoration: none;
 }
+ 
