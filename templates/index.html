@@ -1,115 +1,102 @@
 {% extends 'base.html' %}
 {% block title %}Portfolio{% endblock %}
 {% block content %}
-            <main class="px-3"> 
-                <br><br><br><br>
-                <!-- Quotes -->
-                  <div class="daily-quotes">
-                 
-                <h1 id="quote">Daily Quote</h1> <br><br><br>
-                    <p class="lead quote"><q>{{quote}}</q></p> 
-                    <p class="lead author"><i>--{{author}}</i></p>
-                    <form action="/" method="get">
-                    <button class="btn btn-lg btn-light fw-bold border-white bg-white">Get Quotes</button>
-                    </form>
-                    
-                    <br>
-                    <br>
-                    <br>
-                    
-                    <br>
-                    </div>
-                    <!-- About -->
-                   
-
-
-                <div class="container col-xxl-8 px-4 py-5" id="about"> 
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5"> 
-        <div class="col-10 col-sm-8 col-lg-6"> 
-            <img class="d-block mx-auto mb-4" src="../static/Files/Profile Pic/dp.png" alt="" width="360" height="360"> 
-        </div> 
-        <div class="col-lg-6"> 
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">About Me</h1> 
-            <p class="lead"><p class="lead mb-4">I am Soumajit Ghosh Dastider, an Electronics and Instrumentation Engineer wih <b>7 years of experience</b> in hardware manufacturing industry. I have a good background in electronics schematic and PCB design as well as PIC microcontroller programming.</p>
-                            <p class="lead mb-4">My passion for software developmenr has led me to expand my skill set. I am proficient in Python and have practical experience in backend web development using <b>Flask and Django</b>. I also have knack for design, with skills in 3D modeling using Onshape.</p> </p>
-            <div class="text-center"> 
-                <a href="#contact"><button type="button" class="btn btn-primary btn-lg px-4">Contact Me</button></a>
+<main class="px-3"> 
+    <br><br><br><br>
+    <!-- Quotes -->
+    <div class="daily-quotes">
+        <h1 id="quote">Daily Quote</h1> <br><br><br>
+        <p class="lead quote"><q>{{quote}}</q></p> 
+        <p class="lead author"><i>--{{author}}</i></p>
+        <form action="/" method="get">
+            <button class="btn btn-lg btn-light fw-bold border-white bg-white">Get Quotes</button>
+        </form>
+        <br><br><br><br>
+    </div>
+    
+    <!-- About -->
+    <div class="container col-xxl-8 px-4 py-5" id="about"> 
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5"> 
+            <div class="col-12 col-sm-10 col-lg-6 mx-auto"> 
+                <img class="d-block mx-auto mb-4 img-fluid rounded-circle" src="../static/Files/Profile Pic/dp.png" alt="Profile Picture" width="360" height="360"> 
+            </div> 
+            <div class="col-lg-6 text-center text-lg-start"> 
+                <h1 class="display-5 fw-bold lh-1 mb-3">About Me</h1> 
+                <p class="lead mb-4">I am Soumajit Ghosh Dastider, an Electronics and Instrumentation Engineer with <b>7 years of experience</b> in hardware manufacturing industry. I have a good background in electronics schematic and PCB design as well as PIC microcontroller programming.</p>
+                <p class="lead mb-4">My passion for software development has led me to expand my skill set. I am proficient in Python and have practical experience in backend web development using <b>Flask and Django</b>. I also have knack for design, with skills in 3D modeling using Onshape.</p>
+                <div class="text-center"> 
+                    <a href="#contact"><button type="button" class="btn btn-primary btn-lg px-4">Contact Me</button></a>
+                </div> 
             </div> 
         </div> 
-    </div> 
-</div>
-                <!-- Projects -->
-             <br><br><br id="projects">    
-            <div class="container px-4 py-5" id="custom-cards"> 
-                
-                <h2 class="pb-2 border-bottom" >My Projects 💻</h2>
-            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"> 
-                <div class="col"> 
-                    <a href="{{url_for('projects',project_id=1)}}"><div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1"> 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Python Works</h3> 
-                            
+    </div>
+    
+    <!-- Projects -->
+    <br><br><br id="projects">    
+    <div class="container px-4 py-5" id="custom-cards"> 
+        <h2 class="pb-2 border-bottom text-center">My Projects 💻</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5 justify-content-center"> 
+            <div class="col d-flex justify-content-center"> 
+                <a href="{{url_for('projects',project_id=1)}}">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 text-center"> 
+                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">Python Works</h3> 
                         </div> 
-                    </div> </a>
-                </div> 
-                <div class="col"> 
-                    <a href="{{url_for('projects',project_id=2)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1" > 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Some PCB Designs... 😎</h3> 
-                            
+                    </div> 
+                </a>
+            </div> 
+            <div class="col d-flex justify-content-center"> 
+                <a href="{{url_for('projects',project_id=2)}}">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 text-center"> 
+                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">PCB Designs</h3> 
                         </div> 
-                    </div> </a>
-                </div> 
-                <div class="col"> 
-                    <a href="{{url_for('projects',project_id=3)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1"> 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Some 3D models &#128513;</h3> 
-                             
+                    </div> 
+                </a>
+            </div> 
+            <div class="col d-flex justify-content-center"> 
+                <a href="{{url_for('projects',project_id=3)}}">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1 text-center"> 
+                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">3D Models</h3> 
                         </div> 
-                    </div> </a>
-                </div> 
-                  <div class="col"> 
-                    <a href="{{url_for('projects',project_id=4)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-color: #ff9980;width: 300px; height: 200px;"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1"> 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold" style="font-size: 1.5rem;">Some Electronics Projects &#128513;</h3> 
-                             
+                    </div> 
+                </a>
+            </div> 
+            <div class="col d-flex justify-content-center"> 
+                <a href="{{url_for('projects',project_id=4)}}">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1 text-center"> 
+                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">Electronics Projects</h3> 
                         </div> 
-                    </div> </a>
-                </div> 
+                    </div> 
+                </a>
+            </div> 
+        </div>
+    </div>
+    
+    <!-- Contact -->
+    <div class="contact container" id="contact">
+        <br><br>
+        <h2 class="pb-2 border-bottom text-center">Contact Me</h2>
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="fname" name="name" placeholder="Your name.." required>
             </div>
-        
-            </div>
-            <br>
-                <!-- Contact -->
-                 
-                 <div class="contact" id="contact">
-                    <br><br>
-                    <h2 class="pb-2 border-bottom to_left" id="projects">Contact Me</h2>
-                    <form action="/" method="post">
-
-                        <label for="name">Full Name</label>
-                        <input type="text" id="fname" name="name" placeholder="Your name..">
-
-                        <label for="email">Email ID</label>
-                        <input type="email" id="email" name="email" placeholder="Your email id..">
-
-                        <label for="subject">Message</label>
-                        <textarea id="subject" name="msg" placeholder="Write something.." style="height:200px"></textarea>
-
-                        <button type="submit" >Submit</button>
-
-                        </form>
-                        </div>
-
-                        
-            </main> 
-
-{% endblock %}
-
-
-
-
             
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email" placeholder="Your email id.." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Message</label>
+                <textarea id="subject" name="msg" placeholder="Write something.." style="height:200px" required></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</main> 
+{% endblock %}
