@@ -99,7 +99,7 @@ def index():
             with smtplib.SMTP("smtp.gmail.com", 587) as connection:
                 connection.starttls()
                 connection.login(user=_email, password=password)
-                connection.sendmail(from_addr=_email, to_addrs=["devilsayan16@gmail.com"],
+                connection.sendmail(from_addr=_email, to_addrs=[os.environ['SEND_TO_MAIL_ID'],
                                     msg=email_message.as_string())
             flash('Thank you for Contacting', 'success')
             print(f"{name}\n{email}\n{message}")
