@@ -13,29 +13,7 @@
     
     
     <body class="d-flex h-100 text-center text-bg-dark" id="mainContent"> 
-        <div id="loadingScreen">
-  <div class="spinner-grow text-primary" role="status">
-  <span class="sr-only"></span>
-</div>
-<div class="spinner-grow text-secondary" role="status">
-  <span class="sr-only"></span>
-</div>
-<div class="spinner-grow text-success" role="status">
-  <span class="sr-only"></span>
-</div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="sr-only"></span>
-</div>
-<div class="spinner-grow text-warning" role="status">
-  <span class="sr-only"></span>
-</div>
-<div class="spinner-grow text-info" role="status">
-  <span class="sr-only"></span>
-</div>
-<div class="spinner-grow text-dark" role="status">
-  <span class="sr-only"></span>
-</div>
-</div>
+        
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
             <header class="mb-auto"> 
                 <div> 
@@ -116,16 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-window.addEventListener('load', function() {
-    const loadingScreen = document.getElementById('loadingScreen');
-    const mainContent = document.getElementById('mainContent');
 
-    // Hide the loading screen
-    loadingScreen.style.display = 'none';
-
-    // Show the main content (if initially hidden)
-    mainContent.style.display = 'block'; 
-});
 </script>
     </body>
 </html>
