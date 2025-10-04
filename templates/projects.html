@@ -1,255 +1,86 @@
 {% extends 'base.html' %}
-{% block title %}{% if id==1 %}Python Works{% elif id==2 %}PCB Designs{% elif id==3 %}3D Models{% else %}Electronics Projects{% endif %}{% endblock %}
+{% block title %}{% if id==1 %}Python Works{% elif id==2 %}PCB Designs{% elif id==3 %}3D Models{% else %}Electronics
+Projects{% endif %}{% endblock %}
 {% block content %}
 <div class="container py-5">
-    {% if id==1 %}
+    <h1 class="text-center mb-5">
+        {% if id==1 %}Python Works
+        {% elif id==2 %}PCB Designs
+        {% elif id==3 %}3D Models
+        {% else %}Electronics Projects{% endif %}
+    </h1>
+
+    {% if id == 1 %}
     <!-- Python Projects -->
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <video src="../static/Files/Projects/Python/turtle.mp4" class="img-fluid rounded shadow" alt="Turtle Racing" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Turtle Racing</h1> 
-            <p class="lead">Turtle Racing game using Python Turtle Module.</p> 
-            Click <a class="lead" id="turtle_racing-link" href="https://github.com/Xenon0117/Turtle-Racing" target="_blank"><i>here</i></a> for more
-        </div> 
-    </div>
-    <hr>
-    
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center order-lg-2"> 
-            <video src="../static/Files/Projects/Python/pong.mp4" class="img-fluid rounded shadow" alt="Pong Game" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Pong</h1> 
-            <p class="lead">Classic Pong Game using Python Turtle Module.</p> 
-            Click <a class="lead" id="pong-link" href="https://github.com/Xenon0117/Pong" target="_blank"><i>here</i></a> for more
-        </div> 
-    </div>
-    <hr>
-
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <video src="../static/Files/Projects/Python/pomo.mp4" class="img-fluid rounded shadow" alt="Pomodoro" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Pomodoro</h1> 
-            <p class="lead">Pomodoro Timer using Python Tkinter.</p> 
-            Click <a class="lead" id="pomo-link" href="https://github.com/Xenon0117/Pomodoro" target="_blank"><i>here</i></a> for more
-        </div> 
-    </div>
-    <hr>
-    
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center order-lg-2"> 
-            <video src="../static/Files/Projects/Python/quiz.mp4" class="img-fluid rounded shadow" alt="Quiz App" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Quizler</h1> 
-            <p class="lead">GUI Quiz App.</p> 
-            Click <a class="lead" id="quiz-link" href="https://github.com/Xenon0117/Quizler" target="_blank"><i>here</i></a> for more
-            
-        </div> 
-    </div>
-    <hr>
-
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <video src="../static/Files/Projects/Python/snake_REC.mp4" class="img-fluid rounded shadow" alt="Snake Game" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Snake Game</h1> 
-            <p class="lead">Classic Snake Game using Python Turtle Module.</p> 
-            Click <a class="lead" id="snake-link" href="https://github.com/Xenon0117/Snake-Game" target="_blank"><i>here</i></a> for more
-        </div> 
-    </div>
-    <hr>
-    
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center order-lg-2"> 
-            <video src="../static/Files/Projects/Python/spidy.mp4" class="img-fluid rounded shadow" alt="Spiderman Art" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Spiderman Chiby Art</h1> 
-            <p class="lead">Chiby Spiderman drawing using Python Turtle.</p> 
-            Click <a class="lead" id="spidy-link" href="https://github.com/Xenon0117/SpiderMan-Art" target="_blank"><i>here</i></a> for more
-            
-        </div> 
-    </div>
-    <hr>
-
-        <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <video src="../static/Files/Projects/Python/empl.mp4" class="img-fluid rounded shadow" alt="Employee-Details" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Employee Details</h1> 
-            <p class="lead">Get Employee Retirement date and Service Period.</p> 
-            Click <a class="lead" id="empl-link" href="https://github.com/Xenon0117/Employee-Details" target="_blank"><i>here</i></a> for more
-        </div> 
-    </div>
-    <hr>
-    
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center order-lg-2"> 
-            <video src="../static/Files/Projects/Python/kanye.mp4" class="img-fluid rounded shadow" alt="Kanye" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Kanye Says..</h1> 
-            <p class="lead">Get random quotes with api.</p> 
-            Click <a class="lead" id="kanye-link" href="https://github.com/Xenon0117/Kanye-Says" target="_blank"><i>here</i></a> for more
-        </div> 
-    </div>
-    <hr>
-
-       <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center "> 
-            <video src="../static/Files/Projects/Python/password_mgr.mp4" class="img-fluid rounded shadow" alt="Employee-Details" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start order-lg-1"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Password Manager</h1> 
-            <p class="lead">Password Manager using Python.</p> 
-            Click <a class="lead" id="pass-link" href="https://github.com/Xenon0117/Password-Manager" target="_blank"><i>here</i></a> for more
-            
-        </div> 
-    </div>
-    <hr>
-    
-    
-    
-    
-    {% elif id==2 %}
+    {% set projects = [
+    {'video': 'turtle.mp4', 'title': 'Turtle Racing', 'desc': 'Turtle Racing game using Python Turtle Module.', 'link':
+    'https://github.com/Xenon0117/Turtle-Racing'},
+    {'video': 'pong.mp4', 'title': 'Pong', 'desc': 'Classic Pong Game using Python Turtle Module.', 'link':
+    'https://github.com/Xenon0117/Pong'},
+    {'video': 'pomo.mp4', 'title': 'Pomodoro', 'desc': 'Pomodoro Timer using Python Tkinter.', 'link':
+    'https://github.com/Xenon0117/Pomodoro'},
+    {'video': 'quiz.mp4', 'title': 'Quizler', 'desc': 'GUI Quiz App.', 'link': 'https://github.com/Xenon0117/Quizler'},
+    {'video': 'snake_REC.mp4', 'title': 'Snake Game', 'desc': 'Classic Snake Game using Python Turtle Module.', 'link':
+    'https://github.com/Xenon0117/Snake-Game'},
+    {'video': 'spidy.mp4', 'title': 'Spiderman Chiby Art', 'desc': 'Chiby Spiderman drawing using Python Turtle.',
+    'link': 'https://github.com/Xenon0117/SpiderMan-Art'},
+    {'video': 'empl.mp4', 'title': 'Employee Details', 'desc': 'Get Employee Retirement date and Service Period.',
+    'link': 'https://github.com/Xenon0117/Employee-Details'},
+    {'video': 'kanye.mp4', 'title': 'Kanye Says..', 'desc': 'Get random quotes with api.', 'link':
+    'https://github.com/Xenon0117/Kanye-Says'},
+    {'video': 'password_mgr.mp4', 'title': 'Password Manager', 'desc': 'Password Manager using Python.', 'link':
+    'https://github.com/Xenon0117/Password-Manager'}
+    ] %}
+    {% elif id == 2 %}
     <!-- PCB Projects -->
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <img src="../static/Files/Projects/PCB/FMT_Controller.png" class="img-fluid rounded shadow" alt="Controller PCB" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Controller PCB</h1> 
-            <p class="lead">Controller PCB for 15W FM Transmitter.</p> 
-        </div> 
-    </div>
-    <hr>
-
-     <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center order-lg-2"> 
-            <img src="../static/Files/Projects/PCB/PA.png" class="img-fluid rounded shadow" alt="PA PCB" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">PA PCB</h1> 
-            <p class="lead">150W RF Power Amplifier PCB.</p> 
-        </div> 
-    </div>
-    <hr>
-    
-     <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <img src="../static/Files/Projects/PCB/EXCITER.png" class="img-fluid rounded shadow" alt="PA PCB" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Exciter PCB</h1> 
-            <p class="lead">1W Exciter PCB for 100W FM Trasnsmitter.</p> 
-        </div> 
-    </div>
-    <hr>
-
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center order-lg-2"> 
-            <img src="../static/Files/Projects/PCB/SLM_C.png" class="img-fluid rounded shadow" alt="PA PCB" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Controller PCB</h1> 
-            <p class="lead">Controller PCB for Sound Level Meter.</p> 
-        </div> 
-    </div>
-    <hr>
-    
-     <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <img src="../static/Files/Projects/PCB/SLM_P.png" class="img-fluid rounded shadow" alt="PA PCB" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Power Supply PCB</h1> 
-            <p class="lead">Power Supply  PCB for Sound Level Meter.</p> 
-        </div> 
-    </div>
-    <hr>
-
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center order-lg-2"> 
-            <img src="../static/Files/Projects/PCB/PAL.png" class="img-fluid rounded shadow" alt="PA PCB" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Sound Limiter PCB</h1> 
-            <p class="lead">Controller PCB for Sound Limiter.</p> 
-        </div> 
-    </div>
-    <hr>
-
-       <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <img src="../static/Files/Projects/PCB/AMPLI.png" class="img-fluid rounded shadow" alt="PA PCB" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Amplispeaker PCB</h1> 
-            <p class="lead">Controller PCB for Ampli-Speaker.</p> 
-        </div> 
-    </div>
-    <hr>
-
-    
-    <!-- More PCB projects would follow the same pattern -->
-    
-    {% elif id==3 %}
+    {% set projects = [
+    {'img': 'FMT_Controller.png', 'title': 'Controller PCB', 'desc': 'Controller PCB for 15W FM Transmitter.'},
+    {'img': 'PA.png', 'title': 'PA PCB', 'desc': '150W RF Power Amplifier PCB.'},
+    {'img': 'EXCITER.png', 'title': 'Exciter PCB', 'desc': '1W Exciter PCB for 100W FM Trasnsmitter.'},
+    {'img': 'SLM_C.png', 'title': 'Controller PCB', 'desc': 'Controller PCB for Sound Level Meter.'},
+    {'img': 'SLM_P.png', 'title': 'Power Supply PCB', 'desc': 'Power Supply PCB for Sound Level Meter.'},
+    {'img': 'PAL.png', 'title': 'Sound Limiter PCB', 'desc': 'Controller PCB for Sound Limiter.'},
+    {'img': 'AMPLI.png', 'title': 'Amplispeaker PCB', 'desc': 'Controller PCB for Ampli-Speaker.'}
+    ] %}
+    {% elif id == 3 %}
     <!-- 3D Models -->
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <img src="../static/Files/Projects/3D/Part Studio 1 (1).png" class="img-fluid rounded shadow" alt="KIOSK Design" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">KIOSK</h1> 
-            <p class="lead">Kiosk Design for Govt Project</p>
-            <p>Download the <a href="{{url_for('download_file',filename='D1.pdf')}}"><i>pdf</i></a> file</p> 
-        </div> 
-    </div>
-    <hr>
-
-     <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center  order-lg-2"> 
-            <img src="../static/Files/Projects/3D/Part Studio 1.png" class="img-fluid rounded shadow" alt="KIOSK Design" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Furniture</h1> 
-            <p class="lead">Kitchen Furniture Design</p>
-            <p>Download the <a href="{{url_for('download_file',filename='D2.pdf')}}"><i>pdf</i></a> file</p> 
-        </div> 
-    </div>
-    <hr>
-
-     <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <img src="../static/Files/Projects/3D/NEW DESIGN.png" class="img-fluid rounded shadow" alt="KIOSK Design" loading="lazy"> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Furniture</h1> 
-            <p class="lead">Furniture Design</p>
-            <p>Download the <a href="{{url_for('download_file',filename='D3.pdf')}}"><i>pdf</i></a> file</p> 
-        </div> 
-    </div>
-    <hr>
-    <!-- More 3D models would follow the same pattern -->
-    
+    {% set projects = [
+    {'img': 'Part Studio 1 (1).png', 'title': 'KIOSK', 'desc': 'Kiosk Design for Govt Project', 'pdf': 'D1.pdf'},
+    {'img': 'Part Studio 1.png', 'title': 'Furniture', 'desc': 'Kitchen Furniture Design', 'pdf': 'D2.pdf'},
+    {'img': 'NEW DESIGN.png', 'title': 'Furniture', 'desc': 'Furniture Design', 'pdf': 'D3.pdf'}
+    ] %}
     {% else %}
     <!-- Electronics Projects -->
-    <div class="row justify-content-center align-items-center g-5 py-5"> 
-        <div class="col-12 col-lg-6 text-center"> 
-            <video src="../static/Files/Projects/Electronics/project.mp4" class="img-fluid rounded shadow" alt="Smart Switch" controls> 
-        </div> 
-        <div class="col-lg-6 text-center text-lg-start"> 
-            <h1 class="display-5 fw-bold lh-1 mb-3">Smart Switch</h1> 
-            <p class="lead">Bluetooth controlled Smart Switch with ESP-32 board</p> 
-        </div> 
-    </div>
+    {% set projects = [
+    {'video': 'project.mp4', 'title': 'Smart Switch', 'desc': 'Bluetooth controlled Smart Switch with ESP-32 board'}
+    ] %}
     {% endif %}
+
+    {% for item in projects %}
+    <div class="row align-items-center g-5 mb-5 pb-4 border-bottom border-secondary">
+        <div class="col-lg-6 text-center {% if loop.index % 2 == 0 %}order-lg-2{% endif %}">
+            {% if item.video %}
+            <video controls class="img-fluid rounded shadow" style="max-height: 400px;">
+                <source
+                    src="{{ url_for('static', filename='Files/Projects/' + ('Python' if id==1 else 'Electronics' if id==4 else '3D' if id==3 else 'PCB') + '/' + item.video) }}"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% elif item.img %}
+            <img src="{{ url_for('static', filename='Files/Projects/' + ('PCB' if id==2 else '3D') + '/' + item.img) }}"
+                class="img-fluid rounded shadow" alt="{{ item.title }}" loading="lazy">
+            {% endif %}
+        </div>
+        <div class="col-lg-6 {% if loop.index % 2 == 0 %}text-lg-start{% else %}text-lg-start{% endif %}">
+            <h2 class="display-6 fw-bold mb-3">{{ item.title }}</h2>
+            <p class="lead">{{ item.desc }}</p>
+            {% if item.link %}
+            <a href="{{ item.link }}" target="_blank" class="btn btn-outline-primary">View on GitHub</a>
+            {% elif item.pdf %}
+            <a href="{{ url_for('download_file', filename=item.pdf) }}" class="btn btn-outline-primary">Download PDF</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
