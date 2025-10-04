@@ -1,24 +1,30 @@
 {% extends 'base.html' %}
 {% block title %}Log In{% endblock %}
 {% block content %}
-<main>
-<div class="contact" id="contact">
-                    <br><br>
-                    <h2 class="pb-2 border-bottom to_left" id="projects">LogIn</h2>
+<main class="d-flex align-items-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card bg-dark border-0 rounded-3 shadow-lg p-4">
+                    <h2 class="text-center mb-4 fw-bold display-6 label_heading">Admin Login</h2>
                     <form action="/login" method="post">
-
-                        
-                        <label for="email">Email ID</label>
-                        <input type="email" id="email" name="email" placeholder="Your email id..">
-
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Your Password">
-                        
-                        <button type="submit" >Log In</button>
-
-                        </form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold label">Email Address</label>
+                            <input type="email" class="form-control form-control-lg bg-secondary border-0 text-light"
+                                id="email" name="email" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-bold label">Password</label>
+                            <input type="password" class="form-control form-control-lg bg-secondary border-0 text-light"
+                                id="password" name="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
-
-
 {% endblock %}
