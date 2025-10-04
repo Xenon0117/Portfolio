@@ -1,95 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{%block title %}{% endblock%}</title>
-        <link rel="icon" type="image/x-icon" href="./static/icon.ico">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/CSS/style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    </head>
-    <body class="d-flex h-100 text-center text-bg-dark"> 
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
-            <header class="mb-auto"> 
-                <div> 
-                    <a href="{{url_for('index')}}#about"><h3 class="float-md-start mb-0">SGD</h3></a> 
-                    <nav class="nav nav-masthead justify-content-center float-md-end">
-                        <a class="nav-link fw-bold py-1 px-0 mx-2" href="{{url_for('index')}}">Home</a>
-                        <a class="nav-link fw-bold py-1 px-0 mx-2" href="{{url_for('index')}}#about">About Me</a>
-                        <a class="nav-link fw-bold py-1 px-0 mx-2" href="{{url_for('index')}}#projects">My Projects</a>
-                        <a class="nav-link fw-bold py-1 px-0 mx-2" href="{{url_for('index')}}#contact">Contact Me</a>
-                    </nav>
-                </div> 
-            </header> 
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert {{ category }}"> {{ message|capitalize }} </div>
-                {% endfor %}
-            {% endif %}
-            {% endwith %}
-            
-            {% block content %}{% endblock %}
 
-            <!-- Footer -->
-            <div class="container"> 
-                <footer class="py-3 my-4"> 
-                    <ul class="nav justify-content-center border-bottom pb-3 mb-3"> 
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Home</a></li> 
-                        <li class="nav-item"><a href="{{url_for('index')}}#about" class="nav-link px-2 text-white">About Me</a></li> 
-                        <li class="nav-item"><a href="{{url_for('index')}}#projects" class="nav-link px-2 text-white">Projects</a></li> 
-                        <li class="nav-item"><a href="{{url_for('index')}}#contact" class="nav-link px-2 text-white">Contact Me</a></li> 
-                    </ul> 
-                    {% if current_year=='2025'%}
-                    <p class="text-center text-body-secondary">© {{current_year}} | SOUMAJIT GHOSH DASTIDER</p> 
-                    {% else %}
-                    <p class="text-center text-body-secondary">© 2025 - {{current_year}} | SOUMAJIT GHOSH DASTIDER</p>
-                    {% endif %}
-                    <div class="social text-center">
-                        <a href="https://github.com/Xenon0117" target="_blank" class="text-white mx-2">
-                            <i class="bi bi-github" style="font-size: 1.5rem;"></i>
-                        </a>
-                    </div>
-                </footer> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="text-bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto position-relative">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <a href="{{ url_for('index') }}#about" class="text-decoration-none">
+                    <h3 class="mb-0 text-primary fw-bold">SGD</h3>
+                </a>
+                <!-- Desktop Navigation -->
+                <nav class="nav nav-masthead justify-content-center d-none d-md-flex">
+                    <a class="nav-link fw-bold py-1 px-2 mx-1" href="{{ url_for('index') }}">Home</a>
+                    <a class="nav-link fw-bold py-1 px-2 mx-1" href="{{ url_for('index') }}#about">About Me</a>
+                    <a class="nav-link fw-bold py-1 px-2 mx-1" href="{{ url_for('index') }}#projects">My Projects</a>
+                    <a class="nav-link fw-bold py-1 px-2 mx-1" href="{{ url_for('index') }}#contact">Contact Me</a>
+                </nav>
+                
             </div>
+
+         
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="container mt-3">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'warning' }} alert-dismissible fade show"
+                role="alert">
+                {{ message|capitalize }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
         </div>
-        <script>
-// Mobile navigation toggle
-document.addEventListener('DOMContentLoaded', function() {
-    // Create mobile menu toggle button
-    const menuToggle = document.createElement('button');
-    menuToggle.className = 'menu-toggle';
-    menuToggle.innerHTML = '<i class="bi bi-list" style="font-size: 1.5rem;"></i>';
-    document.querySelector('header').appendChild(menuToggle);
-    
-    // Toggle menu function
-    menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        document.querySelector('.nav-masthead').classList.toggle('active');
-    });
-    
-    // Close menu when clicking on nav links
-    const navLinks = document.querySelectorAll('.nav-masthead .nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth < 768) {
-                document.querySelector('.nav-masthead').classList.remove('active');
-            }
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        const nav = document.querySelector('.nav-masthead');
-        const toggle = document.querySelector('.menu-toggle');
-        if (nav.classList.contains('active') && !nav.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) {
-            nav.classList.remove('active');
-        }
-    });
-});
-</script>
-    </body>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+        <br>
+        <footer class="mt-auto py-4 animated-footer">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link px-2 text-white">Home</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#about" class="nav-link px-2 text-white">About
+                        Me</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#projects"
+                        class="nav-link px-2 text-white">Projects</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#contact" class="nav-link px-2 text-white">Contact
+                        Me</a></li>
+            </ul>
+            {% if current_year == '2025' %}
+            <p class="text-center text-body-primary">© {{ current_year }} | SOUMAJIT GHOSH DASTIDER</p>
+            {% else %}
+            <p class="text-center text-body-primary">© 2025 – {{ current_year }} | SOUMAJIT GHOSH DASTIDER</p>
+            {% endif %}
+            <div class="social text-center">
+                <a href="https://github.com/Xenon0117" target="_blank" class="text-white mx-2">
+                    <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+   
+</body>
+
 </html>
