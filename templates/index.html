@@ -1,102 +1,93 @@
 {% extends 'base.html' %}
 {% block title %}Portfolio{% endblock %}
 {% block content %}
-<main class="px-3"> 
+<main class="px-3">
     <br><br><br><br>
-    <!-- Quotes -->
-    <div class="daily-quotes">
-        <h1 id="quote">Daily Quote</h1> <br><br><br>
-        <p class="lead quote"><q>{{quote}}</q></p> 
-        <p class="lead author"><i>--{{author}}</i></p>
-        <form action="/" method="get">
-            <button class="btn btn-lg btn-light fw-bold border-white bg-white">Get Quotes</button>
-        </form>
-        <br><br><br><br>
+
+<!-- Daily Inspiration -->
+<div class="daily-quotes text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary mb-4">Daily Inspiration</h1>
+    <div class="quote-card glass-card bg-dark rounded-4 p-4 p-md-5 shadow-lg mx-auto" style="max-width: 800px;">
+        <p class="lead quote fs-3 fst-italic mb-3">“{{ quote }}”</p>
+        {% if author %}
+        <p class="lead author  fs-5">— {{ author }}</p>
+        {% else %}
+        <p class="lead author  fs-5">— Anonymous</p>
+        {% endif %}
     </div>
-    
-    <!-- About -->
-    <div class="container col-xxl-8 px-4 py-5" id="about"> 
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5"> 
-            <div class="col-12 col-sm-10 col-lg-6 mx-auto"> 
-                <img class="d-block mx-auto mb-4 img-fluid rounded-circle" src="../static/Files/Profile Pic/dp.png" alt="Profile Picture" width="360" height="360"> 
-            </div> 
-            <div class="col-lg-6 text-center text-lg-start"> 
-                <h1 class="display-5 fw-bold lh-1 mb-3">About Me</h1> 
-                <p class="lead mb-4">I am Soumajit Ghosh Dastider, an Electronics and Instrumentation Engineer with <b>7 years of experience</b> in hardware manufacturing industry. I have a good background in electronics schematic and PCB design as well as PIC microcontroller programming.</p>
-                <p class="lead mb-4">My passion for software development has led me to expand my skill set. I am proficient in Python and have practical experience in backend web development using <b>Flask and Django</b>. I also have knack for design, with skills in 3D modeling using Onshape.</p>
-                <div class="text-center"> 
-                    <a href="#contact"><button type="button" class="btn btn-primary btn-lg px-4">Contact Me</button></a>
-                </div> 
-            </div> 
-        </div> 
-    </div>
-    
-    <!-- Projects -->
-    <br><br><br id="projects">    
-    <div class="container px-4 py-5" id="custom-cards"> 
-        <h2 class="pb-2 border-bottom text-center">My Projects 💻</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5 justify-content-center"> 
-            <div class="col d-flex justify-content-center"> 
-                <a href="{{url_for('projects',project_id=1)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 text-center"> 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">Python Works</h3> 
-                        </div> 
-                    </div> 
-                </a>
-            </div> 
-            <div class="col d-flex justify-content-center"> 
-                <a href="{{url_for('projects',project_id=2)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 text-center"> 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">PCB Designs</h3> 
-                        </div> 
-                    </div> 
-                </a>
-            </div> 
-            <div class="col d-flex justify-content-center"> 
-                <a href="{{url_for('projects',project_id=3)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1 text-center"> 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">3D Models</h3> 
-                        </div> 
-                    </div> 
-                </a>
-            </div> 
-            <div class="col d-flex justify-content-center"> 
-                <a href="{{url_for('projects',project_id=4)}}">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg project-card"> 
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1 text-center"> 
-                            <h3 class="pt-3 mt-3 mb-2 display-6 lh-1 fw-bold">Electronics Projects</h3> 
-                        </div> 
-                    </div> 
-                </a>
-            </div> 
+    <form action="/" method="get" class="mt-4">
+        <button type="submit" class="btn btn-outline-primary btn-lg px-4 py-2">Get New Quote</button>
+    </form>
+</div>
+
+    <!-- About Me -->
+    <div class="container col-xxl-8 px-4 py-5" id="about">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-12 col-sm-10 col-lg-6 mx-auto">
+                <img class="d-block mx-auto img-fluid rounded-circle shadow"
+                    src="{{ url_for('static', filename='Files/Profile Pic/dp.png') }}" alt="Profile Picture" width="300"
+                    height="300">
+            </div>
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-5 fw-bold lh-1 mb-4">About Me</h1>
+                <p class="lead mb-3">I am Soumajit Ghosh Dastider, an Electronics and Instrumentation Engineer with
+                    <strong>7 years of experience</strong> in hardware manufacturing industry. I have a good background
+                    in electronics schematic and PCB design as well as PIC microcontroller programming.</p>
+                <p class="lead mb-4">My passion for software development has led me to expand my skill set. I am
+                    proficient in Python and have practical experience in backend web development using <strong>Flask
+                        and Django</strong>. I also have knack for design, with skills in 3D modeling using Onshape.</p>
+                <div class="d-grid d-sm-flex justify-content-center justify-content-lg-start gap-2">
+                    <a href="#contact" class="btn btn-primary btn-lg px-4">Contact Me</a>
+                </div>
+            </div>
         </div>
     </div>
-    
+
+    <!-- Projects -->
+    <br><br><br id="projects">
+    <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="display-5 fw-bold text-center mb-5 pb-3 border-bottom">My Projects 💻</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+            {% for pid, title in [(1, 'Python Works'), (2, 'PCB Designs'), (3, '3D Models'), (4, 'Electronics
+            Projects')] %}
+            <div class="col d-flex justify-content-center">
+                <a href="{{ url_for('projects', project_id=pid) }}" class="text-decoration-none">
+                    <div class="project-card rounded-4 shadow-lg d-flex align-items-center justify-content-center text-white text-center p-4"
+                        style="background: linear-gradient(135deg, #8a2be2, #6a1cb0); width: 220px; height: 220px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 class="fw-bold fs-4">{{ title }}</h3>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
     <!-- Contact -->
     <div class="contact container" id="contact">
         <br><br>
-        <h2 class="pb-2 border-bottom text-center">Contact Me</h2>
-        <form action="/" method="post">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="fname" name="name" placeholder="Your name.." required>
+        <h2 class="display-5 fw-bold text-center mb-4">Contact Me</h2>
+        <form action="/" method="post" class="mx-auto" style="max-width: 600px;">
+            <div class="form-group mb-4">
+                <label for="name" class="form-label fw-bold">Full Name</label>
+                <input type="text" id="name" name="name"
+                    class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="Your name.."
+                    required>
             </div>
-            
-            <div class="form-group">
-                <label for="email">Email ID</label>
-                <input type="email" id="email" name="email" placeholder="Your email id.." required>
+            <div class="form-group mb-4">
+                <label for="email" class="form-label fw-bold">Email ID</label>
+                <input type="email" id="email" name="email"
+                    class="form-control form-control-lg bg-dark text-light border-secondary"
+                    placeholder="Your email id.." required>
             </div>
-            
-            <div class="form-group">
-                <label for="subject">Message</label>
-                <textarea id="subject" name="msg" placeholder="Write something.." style="height:200px" required></textarea>
+            <div class="form-group mb-4">
+                <label for="msg" class="form-label fw-bold">Message</label>
+                <textarea id="msg" name="msg" class="form-control form-control-lg bg-dark text-light border-secondary"
+                    rows="5" placeholder="Write something.." required></textarea>
             </div>
-
-            <button type="submit">Submit</button>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-sm mx-auto px-5 py-2">Send Message</button>
+            </div>
         </form>
     </div>
-</main> 
+</main>
 {% endblock %}
