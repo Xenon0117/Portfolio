@@ -20,8 +20,15 @@ year=datetime.now().strftime("%Y")
 
 #Initialize 
 app=Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"]=os.environ['DB_URI']
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ['DB_URI']
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_pre_ping": True,        # ← Critical: validates connection before use
+    "pool_recycle": 300,          # Recycle connections every 5 minutes
+    "connect_args": {
+        "sslmode": "require"      # Explicitly enforce SSL (redundant but safe)
+    }
+}
 DOWNLOAD_FOLDER = 'Downloadables'
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 app.config["SECRET_KEY"] = os.environ['FLASK_KEY']
@@ -33,9 +40,8 @@ db=SQLAlchemy(model_class=Base)
 db.init_app(app)
 
 login_manager = LoginManager()
-login_manager.init_app(app)
 login_manager.login_view = "login"
-
+login_manager.init_app(app)
 
 # User model
 class User(UserMixin, db.Model):
@@ -49,8 +55,8 @@ class User(UserMixin, db.Model):
 class DataBase(db.Model):
     __tablename__="User Data"
     id:Mapped[int]=mapped_column(Integer,primary_key=True)
-    name:Mapped[String]=mapped_column(String(250))
-    email:Mapped[String]=mapped_column(String(250))
+    name:Mapped[str]=mapped_column(String(250))
+    email:Mapped[str]=mapped_column(String(250))
     def __repr__(self):
         return f"<DataBase{self.name}>"
 
@@ -205,4 +211,4 @@ def download_file(filename):
     )
 
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run(debug=True)
