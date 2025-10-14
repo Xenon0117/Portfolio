@@ -57,7 +57,7 @@ class DataBase(db.Model):
     id:Mapped[int]=mapped_column(Integer,primary_key=True)
     name:Mapped[str]=mapped_column(String(250))
     email:Mapped[str]=mapped_column(String(250))
-    message=Mapped[str]=mapped_column(String(1000))
+    message:Mapped[str]=mapped_column(String(1000))
     def __repr__(self):
         return f"<DataBase{self.name}>"
 
@@ -212,4 +212,4 @@ def download_file(filename):
     )
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=False)
