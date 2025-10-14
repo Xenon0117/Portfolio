@@ -85,42 +85,33 @@ def admin_only(f):
 @app.route("/",methods=['GET','POST'])
 def index():
     if request.method=='POST':
-        _email=os.environ["EMAIL"]
-        password=os.environ["PASS"]
-        name=str(request.form['name'])
-        email=str(request.form['email'])
-        message=str(request.form['msg'])
-        
-        with app.app_context():
-            new_data=DataBase(name=name,email=email,message=message)
-            db.session.add(new_data)
-            db.session.commit()
-        new_letter=f"Name: {name}\nEmail Id: {email}\nMessage:{message}"
-        
-        # email_message = MIMEText(new_letter)
-        # email_message['Subject'] = f"Feedback from {name}"
-        # email_message['From'] = _email
-        # email_message['To'] = "devilsayan16@gmail.com"
+       if request.method=='POST':
+        try:
+            # Assign environment variables (they are currently unused but kept for future email use)
+            _email=os.environ["EMAIL"]
+            password=os.environ["PASS"]
+            
+            name=str(request.form['name'])
+            email=str(request.form['email'])
+            message=str(request.form['msg'])
+            
+            # --- Database Logic ---
+            with app.app_context():
+                new_data=DataBase(name=name,email=email,message=message)
+                db.session.add(new_data)
+                db.session.commit()
+            
+            new_letter=f"Name: {name}\nEmail Id: {email}\nMessage:{message}"
+            
+            flash('Thank you for Contacting! Your message has been saved.', 'success')
+            return redirect(url_for('index'))
 
-        # try:
-        #     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
-        #         connection.starttls()
-        #         connection.login(user=_email, password=password)
-        #         connection.sendmail(from_addr=_email, to_addrs=[os.environ['SEND_TO_MAIL_ID']],
-        #                             msg=email_message.as_string())
-        #     flash('Thank you for Contacting', 'success')
-        #     print(f"{name}\n{email}\n{message}")
-        #     return redirect(url_for('index'))
-        # except smtplib.SMTPAuthenticationError:
-        #     print("Authentication error. Check your email and password (or App Password).")
-        #     flash("Something Went Wrong","danger")
-        # except smtplib.SMTPDataError as e:
-        #     print(f"SMTP Data Error: {e}")
-        #     flash("Something Went Wrong","danger")
-        # except Exception as e:
-        #     print(f"An error occurred: {e}")
-        #     flash("Something Went Wrong","danger")  
-
+        except Exception as e:
+            db.session.rollback() 
+            print(f"Error handling contact form submission: {e}")
+            # Use a generic error message for the user
+            flash("An internal error occurred. Your message could not be saved. Please try again later.", "danger")
+            return redirect(url_for('index')) # Always redirect on failure too
     req_quote=Req()
     return render_template('index.html',quote=req_quote.quote,author=req_quote.author,current_year=year)
 
