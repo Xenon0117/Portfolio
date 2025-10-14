@@ -57,6 +57,7 @@ class DataBase(db.Model):
     id:Mapped[int]=mapped_column(Integer,primary_key=True)
     name:Mapped[str]=mapped_column(String(250))
     email:Mapped[str]=mapped_column(String(250))
+    message=Mapped[str]=mapped_column(String(1000))
     def __repr__(self):
         return f"<DataBase{self.name}>"
 
@@ -91,34 +92,34 @@ def index():
         message=str(request.form['msg'])
         
         with app.app_context():
-            new_data=DataBase(name=name,email=email)
+            new_data=DataBase(name=name,email=email,message=message)
             db.session.add(new_data)
             db.session.commit()
         new_letter=f"Name: {name}\nEmail Id: {email}\nMessage:{message}"
         
-        email_message = MIMEText(new_letter)
-        email_message['Subject'] = f"Feedback from {name}"
-        email_message['From'] = _email
-        email_message['To'] = "devilsayan16@gmail.com"
+        # email_message = MIMEText(new_letter)
+        # email_message['Subject'] = f"Feedback from {name}"
+        # email_message['From'] = _email
+        # email_message['To'] = "devilsayan16@gmail.com"
 
-        try:
-            with smtplib.SMTP("smtp.gmail.com", 587) as connection:
-                connection.starttls()
-                connection.login(user=_email, password=password)
-                connection.sendmail(from_addr=_email, to_addrs=[os.environ['SEND_TO_MAIL_ID']],
-                                    msg=email_message.as_string())
-            flash('Thank you for Contacting', 'success')
-            print(f"{name}\n{email}\n{message}")
-            return redirect(url_for('index'))
-        except smtplib.SMTPAuthenticationError:
-            print("Authentication error. Check your email and password (or App Password).")
-            flash("Something Went Wrong","danger")
-        except smtplib.SMTPDataError as e:
-            print(f"SMTP Data Error: {e}")
-            flash("Something Went Wrong","danger")
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            flash("Something Went Wrong","danger")  
+        # try:
+        #     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+        #         connection.starttls()
+        #         connection.login(user=_email, password=password)
+        #         connection.sendmail(from_addr=_email, to_addrs=[os.environ['SEND_TO_MAIL_ID']],
+        #                             msg=email_message.as_string())
+        #     flash('Thank you for Contacting', 'success')
+        #     print(f"{name}\n{email}\n{message}")
+        #     return redirect(url_for('index'))
+        # except smtplib.SMTPAuthenticationError:
+        #     print("Authentication error. Check your email and password (or App Password).")
+        #     flash("Something Went Wrong","danger")
+        # except smtplib.SMTPDataError as e:
+        #     print(f"SMTP Data Error: {e}")
+        #     flash("Something Went Wrong","danger")
+        # except Exception as e:
+        #     print(f"An error occurred: {e}")
+        #     flash("Something Went Wrong","danger")  
 
     req_quote=Req()
     return render_template('index.html',quote=req_quote.quote,author=req_quote.author,current_year=year)
