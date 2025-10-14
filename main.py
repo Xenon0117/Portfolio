@@ -85,12 +85,9 @@ def admin_only(f):
 @app.route("/",methods=['GET','POST'])
 def index():
     if request.method=='POST':
-       if request.method=='POST':
         try:
-            # Assign environment variables (they are currently unused but kept for future email use)
             _email=os.environ["EMAIL"]
             password=os.environ["PASS"]
-            
             name=str(request.form['name'])
             email=str(request.form['email'])
             message=str(request.form['msg'])
@@ -112,6 +109,7 @@ def index():
             # Use a generic error message for the user
             flash("An internal error occurred. Your message could not be saved. Please try again later.", "danger")
             return redirect(url_for('index')) # Always redirect on failure too
+       
     req_quote=Req()
     return render_template('index.html',quote=req_quote.quote,author=req_quote.author,current_year=year)
 
