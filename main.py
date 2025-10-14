@@ -115,7 +115,7 @@ def index():
 
 @app.route("/projects/<int:project_id>")
 def projects(project_id):
-    return render_template('projects.html',id=project_id)
+    return render_template('projects.html',id=project_id,current_year=year)
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
@@ -146,7 +146,7 @@ def register():
         flash("Registered and Logged In", "success")
         return redirect(url_for("index"))
     
-    return render_template("register.html", logged_in=current_user.is_authenticated)
+    return render_template("register.html", logged_in=current_user.is_authenticated,current_year=year)
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -172,7 +172,7 @@ def login():
             flash("Only Admin Accessible. Need Admin Credentials", "warning")
             return redirect(url_for('login'))
     
-    return render_template("login.html", logged_in=current_user.is_authenticated)
+    return render_template("login.html", logged_in=current_user.is_authenticated,current_year=year)
 
 
 @app.route('/logout')
